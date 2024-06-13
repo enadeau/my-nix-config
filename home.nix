@@ -114,5 +114,5 @@ in
   ];
 
   dropbox.enable = true;
-
+  git.enable = true;
 }
