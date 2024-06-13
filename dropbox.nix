@@ -1,4 +1,4 @@
-{pkgs, completionDir, ...}:
+{pkgs, lib, config, completionDir, ...}:
 
 let
   # Path where the completion script will be saved
@@ -9,29 +9,35 @@ let
   '';
 in
 {
-  home.packages = [
-    pkgs.maestral
-  ];
-
-  systemd.user.services.maestral = {
-    Unit = {
-      Description = "Maestral Dropbox Client";
-    };
-
-    Service = {
-      Type = "notify";
-      NotifyAccess = "exec";
-      ExecStart = "${pkgs.maestral}/bin/maestral start --foreground";
-      ExecStop = "${pkgs.maestral}/bin/maestral stop";
-      # Restart = "on-failure";
-      # ExecStopPost= "${pkgs.bash}/bin/env bash -c \"if [ \${SERVICE_RESULT} != success ]; then notify-send Maestral 'Daemon failed'; fi\"";
-      WatchdogSec = "30s";
-    };
-
-    Install = {
-      WantedBy = [ "default.target" ];
-    };
+  options = {
+    dropbox.enable = lib.mkEnableOption "enable dropbox";
   };
 
-  home.file."${completionDir}/maestral".source = "${maestralCompletion}";
+  config = lib.mkIf config.dropbox.enable {
+    home.packages = [
+      pkgs.maestral
+    ];
+
+    systemd.user.services.maestral = {
+      Unit = {
+        Description = "Maestral Dropbox Client";
+      };
+
+      Service = {
+        Type = "notify";
+        NotifyAccess = "exec";
+        ExecStart = "${pkgs.maestral}/bin/maestral start --foreground";
+        ExecStop = "${pkgs.maestral}/bin/maestral stop";
+        # Restart = "on-failure";
+        # ExecStopPost= "${pkgs.bash}/bin/env bash -c \"if [ \${SERVICE_RESULT} != success ]; then notify-send Maestral 'Daemon failed'; fi\"";
+        WatchdogSec = "30s";
+      };
+
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+    };
+
+    home.file."${completionDir}/maestral".source = "${maestralCompletion}";
+  };
 }

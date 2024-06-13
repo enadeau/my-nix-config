@@ -1,8 +1,8 @@
-{ config, pkgs, ... }:
+{ lib, config, pkgs, ... }:
 
 let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
-  dropboxModule = import ./dropbox.nix { inherit pkgs completionDir; };
+  dropboxModule = import ./dropbox.nix { inherit pkgs lib config completionDir; };
 in
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -112,5 +112,7 @@ in
     ./git.nix
     dropboxModule
   ];
+
+  dropbox.enable = true;
 
 }
