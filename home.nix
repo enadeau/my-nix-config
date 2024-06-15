@@ -21,9 +21,13 @@ in
 
   # The home.packages option allows you to install Nix packages into your
   # environment.
+  nixpkgs.config.allowUnfree = true;
   home.packages = [
     pkgs.ripgrep
     pkgs.firefox
+    pkgs.slack
+    pkgs.tldr
+    pkgs.curl
     # # Adds the 'hello' command to your environment. It prints a friendly
     # # "Hello, world!" when run.
     # pkgs.hello
@@ -105,8 +109,6 @@ in
     };
   };
 
-  # nixpkgs.config.allowUnfree = true;
-  # services.dropbox.enable = true;
 
   imports = [
     ./git.nix
@@ -115,4 +117,10 @@ in
 
   dropbox.enable = true;
   git.enable = true;
+
+  programs.btop.enable = true;
+  programs.btop.settings = {
+    theme_background = false;
+    color_theme = "solarized_dark";
+  };
 }
