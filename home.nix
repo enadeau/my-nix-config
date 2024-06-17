@@ -123,4 +123,6 @@ in
     theme_background = false;
     color_theme = "solarized_dark";
   };
+
+  programs.starship.enable = true;
 }
