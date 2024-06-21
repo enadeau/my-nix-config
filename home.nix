@@ -1,4 +1,4 @@
-{ lib, config, pkgs, ... }:
+{ lib, config, pkgs, openconnect-sso, ... }:
 
 let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
@@ -29,6 +29,7 @@ in
     pkgs.tldr
     pkgs.curl
     pkgs.keepassxc
+    openconnect-sso.packages.x86_64-linux.default
 
     # # It is sometimes useful to fine-tune packages, for example, by applying
     # # overrides. You can do that directly here, just don't forget the
