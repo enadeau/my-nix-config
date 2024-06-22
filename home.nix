@@ -12,6 +12,8 @@ in
 
   programs.ripgrep.enable = true;
   programs.firefox.enable = true;
+  programs.rofi.enable = true;
+  programs.rofi.package = pkgs.rofi-wayland;
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
@@ -88,8 +90,7 @@ in
     };
     targets = {
       hyprland.enable = false;
+      rofi.enable = false; # Needs fixing quite ugly over terminal
     };
   };
-
-
 }
