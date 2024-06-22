@@ -111,6 +111,7 @@ in
 
   imports = [
     ./git.nix
+    ./terminal.nix
     dropboxModule
   ];
 
@@ -118,10 +119,34 @@ in
   git.enable = true;
 
   programs.btop.enable = true;
-  programs.btop.settings = {
-    theme_background = false;
-    color_theme = "solarized_dark";
+  programs.starship.enable = true;
+
+  stylix = {
+    enable = true;
+    image = ./wallpaper_full_resolution.jpg;
+    base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
+    fonts = {
+        serif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Serif";
+      };
+      sansSerif = {
+        package = pkgs.dejavu_fonts;
+        name = "DejaVu Sans";
+      };
+      monospace = {
+        package = pkgs.fira-code-nerdfont;
+        name = "FiraCode Nerd Font Mono";
+      };
+      emoji = {
+        package = pkgs.noto-fonts-emoji;
+        name = "Noto Color Emoji";
+      };
+    };
+    targets = {
+      hyprland.enable = false;
+    };
   };
 
-  programs.starship.enable = true;
+
 }
