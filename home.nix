@@ -22,9 +22,9 @@ in
   # The home.packages option allows you to install Nix packages into your
   # environment.
   nixpkgs.config.allowUnfree = true;
+  programs.ripgrep.enable = true;
+  programs.firefox.enable = true;
   home.packages = [
-    pkgs.ripgrep
-    pkgs.firefox
     pkgs.slack
     pkgs.tldr
     pkgs.curl
