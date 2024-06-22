@@ -14,6 +14,9 @@ in
   programs.firefox.enable = true;
   programs.rofi.enable = true;
   programs.rofi.package = pkgs.rofi-wayland;
+  programs.dunst.enable = true;
+  xdg.portal.enable = true;
+  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyperland ];
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
