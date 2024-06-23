@@ -12,11 +12,16 @@ in
 
   programs.ripgrep.enable = true;
   programs.firefox.enable = true;
-  programs.rofi.enable = true;
-  programs.rofi.package = pkgs.rofi-wayland;
-  programs.dunst.enable = true;
-  xdg.portal.enable = true;
-  xdg.portal.extraPortals = [ pkgs.xdg-desktop-portal-hyperland ];
+  programs.rofi = {
+    enable = true;
+    package = pkgs.rofi-wayland;
+  };
+  services.dunst.enable = true;
+  xdg.portal = {
+    enable = true;
+    config.common.default = "*";
+    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+  };
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
@@ -59,12 +64,14 @@ in
 
   imports = [
     ./git.nix
+    ./waybar.nix
     ./terminal.nix
     dropboxModule
   ];
 
   dropbox.enable = true;
   git.enable = true;
+  waybar.enable = true;
 
   programs.btop.enable = true;
   programs.starship.enable = true;
@@ -94,6 +101,7 @@ in
     targets = {
       hyprland.enable = false;
       rofi.enable = false; # Needs fixing quite ugly over terminal
+      waybar.enable = false;
     };
   };
 }

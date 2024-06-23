@@ -1,0 +1,42 @@
+@import "colors.css";
+
+* {
+    /* border: none; */
+    /* border-radius: 0; */
+    font-family: "Noto Nerd Font";
+    font-size: 13px;
+    /* min-height: 0; */
+}
+
+window#waybar {
+    background: @base00;
+    color: @base03;
+}
+
+#window {
+    font-weight: bold;
+}
+
+
+#workspaces button {
+    padding: 0 5px;
+    border-top: 2px solid @base03;
+}
+
+#workspaces button.active {
+    color: @base0A;
+    border-top: 2px solid @base0A;
+}
+
+#clock {
+    font-weight: bold;
+}
+
+#cpu.green {
+    color: @base0F;
+}
+
+/* #clock, #battery, #cpu, #memory, #network, #pulseaudio, #custom-spotify, #tray, #mode { */
+/*     padding: 0 3px; */
+/*     margin: 0 2px; */
+/* } */
