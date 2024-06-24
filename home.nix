@@ -16,7 +16,21 @@ in
     enable = true;
     package = pkgs.rofi-wayland;
   };
-  services.dunst.enable = true;
+  services.dunst = {
+    enable = true;
+    settings = {
+      global = {
+        follow = "keyboard";
+        gap_size = 5;
+        frame_width = 1;
+        corner_radius = 10;
+        stack_duplicates = false;
+        notification_limit = 4;
+        progress_bar = true;
+        progress_bar_corner_radius = 5;
+      };
+    };
+  };
   xdg.portal = {
     enable = true;
     config.common.default = "*";
