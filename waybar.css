@@ -1,11 +1,11 @@
 @import "colors.css";
 
 * {
-    /* border: none; */
-    /* border-radius: 0; */
+    border: none;
+    border-radius: 0;
     font-family: "Noto Nerd Font";
     font-size: 13px;
-    /* min-height: 0; */
+    min-height: 0;
 }
 
 window#waybar {
