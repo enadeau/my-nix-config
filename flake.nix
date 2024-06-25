@@ -43,5 +43,17 @@
         inherit openconnect-sso;
       };
     };
+
+    devShells.${system}.default = pkgs.mkShell {
+      name = "home manager";
+      buildInputs = [
+        pkgs.alejandra
+        pkgs.pre-commit
+      ];
+
+      shellHook = ''
+        pre-commit install > /dev/null
+      '';
+    };
   };
 }

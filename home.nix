@@ -46,7 +46,6 @@ in {
     pkgs.tldr
     pkgs.curl
     pkgs.keepassxc
-    pkgs.alejandra
     openconnect-sso.packages.x86_64-linux.default
   ];
 
