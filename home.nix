@@ -15,6 +15,10 @@ in {
 
   programs.ripgrep.enable = true;
   programs.firefox.enable = true;
+  programs.direnv = {
+    enable = true;
+    nix-direnv.enable = true;
+  };
   programs.rofi = {
     enable = true;
     package = pkgs.rofi-wayland;
