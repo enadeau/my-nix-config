@@ -1,10 +1,13 @@
-{ lib, config, pkgs, openconnect-sso, ... }:
-
-let
-  completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
-  dropboxModule = import ./dropbox.nix { inherit pkgs lib config completionDir; };
-in
 {
+  lib,
+  config,
+  pkgs,
+  openconnect-sso,
+  ...
+}: let
+  completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
+  dropboxModule = import ./dropbox.nix {inherit pkgs lib config completionDir;};
+in {
   home.username = "emilen";
   home.homeDirectory = "/home/emilen";
   home.stateVersion = "23.11"; # Please read the comment before changing.
@@ -34,7 +37,7 @@ in
   xdg.portal = {
     enable = true;
     config.common.default = "*";
-    extraPortals = [ pkgs.xdg-desktop-portal-hyprland ];
+    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
   };
 
   nixpkgs.config.allowUnfree = true;
@@ -54,9 +57,9 @@ in
   };
 
   home.shellAliases = {
-      grep = "grep --color=auto";
-      ls = "ls --color=auto";
-    };
+    grep = "grep --color=auto";
+    ls = "ls --color=auto";
+  };
 
   programs.bash.enable = true;
 
@@ -75,7 +78,6 @@ in
       "\\e[B" = "history-search-forward";
     };
   };
-
 
   imports = [
     ./git.nix
@@ -96,7 +98,7 @@ in
     image = ./wallpaper_full_resolution.jpg;
     base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
     fonts = {
-        serif = {
+      serif = {
         package = pkgs.dejavu_fonts;
         name = "DejaVu Serif";
       };

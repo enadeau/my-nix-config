@@ -1,5 +1,8 @@
-{lib, config, ...}:
 {
+  lib,
+  config,
+  ...
+}: {
   options = {
     git.enable = lib.mkEnableOption "enable git";
     git.userEmail = lib.mkOption {
@@ -42,9 +45,10 @@
     };
 
     home.shellAliases.g = "git";
-    programs.bash.bashrcExtra = "
-  # Autocompletion for g alias
-  source $HOME/.nix-profile/share/git/contrib/completion/git-completion.bash
-  __git_complete g __git_main";
+    programs.bash.bashrcExtra = ''
+      # Autocompletion for g alias
+      source $HOME/.nix-profile/share/git/contrib/completion/git-completion.bash
+      __git_complete g __git_main
+    '';
   };
 }

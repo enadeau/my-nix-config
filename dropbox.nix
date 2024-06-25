@@ -1,14 +1,18 @@
-{pkgs, lib, config, completionDir, ...}:
-
-let
-  # Path where the completion script will be saved
-  maestralCompletion = pkgs.runCommand "maestral-completion" {
-    buildInputs = [ pkgs.maestral ];
-  } ''
-    ${pkgs.maestral}/bin/maestral completion bash > $out
-  '';
-in
 {
+  pkgs,
+  lib,
+  config,
+  completionDir,
+  ...
+}: let
+  # Path where the completion script will be saved
+  maestralCompletion =
+    pkgs.runCommand "maestral-completion" {
+      buildInputs = [pkgs.maestral];
+    } ''
+      ${pkgs.maestral}/bin/maestral completion bash > $out
+    '';
+in {
   options = {
     dropbox.enable = lib.mkEnableOption "enable dropbox";
   };
@@ -34,7 +38,7 @@ in
       };
 
       Install = {
-        WantedBy = [ "default.target" ];
+        WantedBy = ["default.target"];
       };
     };
 
