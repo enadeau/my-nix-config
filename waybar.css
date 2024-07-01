@@ -9,8 +9,8 @@
 }
 
 window#waybar {
-    background: @base00;
-    color: @base03;
+    background: @base01;
+    color: @base04;
 }
 
 #window {
@@ -20,7 +20,7 @@ window#waybar {
 
 #workspaces button {
     padding: 0 5px;
-    border-top: 2px solid @base03;
+    border-top: 2px solid @base04;
 }
 
 #workspaces button.active {
