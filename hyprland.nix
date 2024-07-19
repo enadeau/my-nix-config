@@ -5,6 +5,13 @@
   ...
 }: let
   colors = config.lib.stylix.colors;
+  reduce_backlight = device_name: {
+    timeout = 240;
+    # set monitor backlight to minimum, avoid 0 on OLED monitor.
+    on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -d ${device_name} -s set 10%";
+    # monitor backlight restore.
+    on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -d ${device_name} -r";
+  };
 in {
   wayland.windowManager.hyprland.enable = true;
   wayland.windowManager.hyprland.settings = {
@@ -89,13 +96,8 @@ in {
       };
       listener = [
         # Reduce backlight after 4 min
-        {
-          timeout = 240;
-          # set monitor backlight to minimum, avoid 0 on OLED monitor.
-          on-timeout = "${pkgs.brightnessctl}/bin/brightnessctl -s set 10";
-          # monitor backlight restore.
-          on-resume = "${pkgs.brightnessctl}/bin/brightnessctl -r";
-        }
+        (reduce_backlight "intel_backlight")
+        (reduce_backlight "ddcci2")
         # Lock screen after 5min
         {
           timeout = 300;
