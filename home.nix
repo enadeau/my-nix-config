@@ -2,6 +2,7 @@
   lib,
   config,
   pkgs,
+  nixvim,
   ...
 }: let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
@@ -83,6 +84,7 @@ in {
   imports = [
     ./git.nix
     ./waybar.nix
+    ./vim.nix
     ./terminal.nix
     ./hyprland.nix
     dropboxModule
@@ -91,6 +93,7 @@ in {
   dropbox.enable = true;
   git.enable = true;
   waybar.enable = true;
+  vim.enable = true;
 
   programs.btop.enable = true;
   programs.starship.enable = true;

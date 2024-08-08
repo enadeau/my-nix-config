@@ -13,12 +13,17 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
+    nixvim = {
+      url = "github:nix-community/nixvim";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
     stylix,
+    nixvim,
     ...
   }: let
     system = "x86_64-linux";
@@ -31,6 +36,7 @@
       # the path to your home.nix.
       modules = [
         stylix.homeManagerModules.stylix
+        nixvim.homeManagerModules.nixvim
         ./home.nix
       ];
 
