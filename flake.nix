@@ -8,9 +8,11 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-    stylix.url = "github:danth/stylix";
-    # flake-utils.url = "github:numtide/flake-utils";
-    # systems.url = "github:nix-systems/default";
+    stylix = {
+      url = "github:danth/stylix";
+      inputs.nixpkgs.follows = "nixpkgs";
+      inputs.home-manager.follows = "home-manager";
+    };
     openconnect-sso = {
       url = github:enadeau/openconnect-sso/new-build-fix;
       inputs.nixpkgs.follows = "nixpkgs";
