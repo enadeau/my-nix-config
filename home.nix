@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  openconnect-sso,
   ...
 }: let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
@@ -50,7 +49,6 @@ in {
     pkgs.tldr
     pkgs.curl
     pkgs.keepassxc
-    openconnect-sso.packages.x86_64-linux.default
   ];
 
   home.sessionVariables = {

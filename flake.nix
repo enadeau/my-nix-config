@@ -13,16 +13,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
       inputs.home-manager.follows = "home-manager";
     };
-    openconnect-sso = {
-      url = github:enadeau/openconnect-sso/new-build-fix;
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
   };
 
   outputs = {
     nixpkgs,
     home-manager,
-    openconnect-sso,
     stylix,
     ...
   }: let
@@ -42,7 +37,6 @@
       # Optionally use extraSpecialArgs
       # to pass through arguments to home.nix
       extraSpecialArgs = {
-        inherit openconnect-sso;
       };
     };
 
