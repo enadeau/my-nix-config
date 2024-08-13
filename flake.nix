@@ -26,7 +26,7 @@
     stylix,
     nixvim,
     ...
-  }: let
+  } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
@@ -45,6 +45,11 @@
       # to pass through arguments to home.nix
       extraSpecialArgs = {
       };
+    };
+
+    packages.${system}.nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+      inherit pkgs;
+      module = import ./nixvim;
     };
 
     devShells.${system}.default = pkgs.mkShell {

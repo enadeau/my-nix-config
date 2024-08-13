@@ -84,7 +84,6 @@ in {
   imports = [
     ./git.nix
     ./waybar.nix
-    ./vim.nix
     ./terminal.nix
     ./hyprland.nix
     dropboxModule
@@ -93,10 +92,10 @@ in {
   dropbox.enable = true;
   git.enable = true;
   waybar.enable = true;
-  vim.enable = true;
 
   programs.btop.enable = true;
   programs.starship.enable = true;
+  programs.nixvim = import ./nixvim // {enable = true;};
 
   stylix = {
     enable = true;
