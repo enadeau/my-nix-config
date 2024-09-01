@@ -14,7 +14,7 @@
 
   globals = {
     mapleader = " ";
-    maplocallader = "«";
+    maplocalleader = "«";
   };
 
   opts = {
@@ -168,7 +168,7 @@
           "gI" = "implementation";
           "<Leader>D" = "type_definition";
           "K" = "hover";
-          "<LocalLeader>f" = "format";
+          "<localleader>f" = "format";
         };
       };
       servers = {
