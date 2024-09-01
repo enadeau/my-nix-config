@@ -208,6 +208,5 @@
       folding = true;
       settings.highlight.enable = true;
     };
-    hardtime.enable = true;
   };
 }
