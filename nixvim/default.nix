@@ -5,9 +5,11 @@
 
   extraFiles = {
     "queries/python/folds.scm".source = ./python_folds.scm;
+    "lua/focus_line.lua".source = ./focus_line.lua;
   };
   extraConfigLua = ''
     vim.opt.runtimepath:prepend("/home/emilen/.config/nvim")
+    require("focus_line")
   '';
 
   globals = {
@@ -65,6 +67,13 @@
       mode = ["n"];
       options.unique = true;
       action = "za";
+    }
+    {
+      options.desc = "Focus the current line";
+      key = "<Leader>f";
+      mode = ["n"];
+      options.unique = true;
+      action = ":lua FocusCurrentLine()<CR>";
     }
     {
       options.desc = "Next in snippet";
@@ -159,7 +168,7 @@
           "gI" = "implementation";
           "<Leader>D" = "type_definition";
           "K" = "hover";
-          "<Leader>f" = "format";
+          "<LocalLeader>f" = "format";
         };
       };
       servers = {
