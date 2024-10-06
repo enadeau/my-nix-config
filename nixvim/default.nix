@@ -176,6 +176,7 @@
         pyright.enable = true;
         ruff.enable = true;
         lua-ls.enable = true;
+        terraformls.enable = true;
       };
     };
     lspkind = {
