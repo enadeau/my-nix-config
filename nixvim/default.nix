@@ -173,7 +173,12 @@
       };
       servers = {
         nixd.enable = true;
-        pyright.enable = true;
+        pylsp = {
+          enable = true;
+          settings.plugins = {
+            jedi.enable = true;
+          };
+        };
         ruff.enable = true;
         lua-ls.enable = true;
         terraformls.enable = true;
