@@ -30,6 +30,11 @@
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
   in {
+    nixosConfigurations.y4080 = nixpkgs.lib.nixosSystem {
+      system = system;
+      modules = [./configuration.nix];
+    };
+
     homeConfigurations."emilen" = home-manager.lib.homeManagerConfiguration {
       inherit pkgs;
 
