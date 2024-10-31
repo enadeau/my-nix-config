@@ -32,7 +32,7 @@
   in {
     nixosConfigurations.y4080 = nixpkgs.lib.nixosSystem {
       system = system;
-      modules = [./configuration.nix];
+      modules = [./nixos/configuration.nix];
     };
 
     homeConfigurations."emilen" = home-manager.lib.homeManagerConfiguration {
@@ -43,7 +43,7 @@
       modules = [
         stylix.homeManagerModules.stylix
         nixvim.homeManagerModules.nixvim
-        ./home.nix
+        ./homemanager/home.nix
       ];
 
       # Optionally use extraSpecialArgs
