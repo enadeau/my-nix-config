@@ -2,7 +2,6 @@
   lib,
   config,
   pkgs,
-  nixvim,
   ...
 }: let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
@@ -38,11 +37,11 @@ in {
       };
     };
   };
-  xdg.portal = {
-    enable = true;
-    config.common.default = "*";
-    extraPortals = [pkgs.xdg-desktop-portal-hyprland];
-  };
+  # xdg.portal = {
+  #   enable = true;
+  #   config.common.default = "*";
+  #   extraPortals = [pkgs.xdg-desktop-portal-hyprland];
+  # };
 
   nixpkgs.config.allowUnfree = true;
   home.packages = [
@@ -83,51 +82,51 @@ in {
 
   imports = [
     ./git.nix
-    ./waybar.nix
+    # ./waybar.nix
     ./terminal.nix
-    ./hyprland.nix
+    # ./hyprland.nix
     dropboxModule
   ];
 
   dropbox.enable = true;
   git.enable = true;
-  waybar.enable = true;
+  # waybar.enable = true;
 
   programs.btop.enable = true;
   programs.starship.enable = true;
-  programs.nixvim = import ./nixvim // {enable = true;};
+  # programs.nixvim = import ../nixvim // {enable = true;};
 
-  stylix = {
-    enable = true;
-    image = pkgs.runCommand "wallpaper_1920x1080.jpg" {} ''
-      ${pkgs.imagemagick}/bin/convert ${./wallpaper_full_resolution.jpg} \
-      -resize 1920x1080! \
-      -filter Lanczos \
-      -sharpen 0x1 \
-      $out
-    '';
-    base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
-    fonts = {
-      serif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Serif";
-      };
-      sansSerif = {
-        package = pkgs.dejavu_fonts;
-        name = "DejaVu Sans";
-      };
-      monospace = {
-        package = pkgs.fira-code-nerdfont;
-        name = "FiraCode Nerd Font Mono";
-      };
-      emoji = {
-        package = pkgs.noto-fonts-emoji;
-        name = "Noto Color Emoji";
-      };
-    };
-    targets = {
-      rofi.enable = false; # Needs fixing quite ugly over terminal
-      waybar.enable = false;
-    };
-  };
+  # stylix = {
+  #   enable = true;
+  #   image = pkgs.runCommand "wallpaper_1920x1080.jpg" {} ''
+  #     ${pkgs.imagemagick}/bin/convert ${./wallpaper_full_resolution.jpg} \
+  #     -resize 1920x1080! \
+  #     -filter Lanczos \
+  #     -sharpen 0x1 \
+  #     $out
+  #   '';
+  #   base16Scheme = "${pkgs.base16-schemes}/share/themes/solarized-dark.yaml";
+  #   fonts = {
+  #     serif = {
+  #       package = pkgs.dejavu_fonts;
+  #       name = "DejaVu Serif";
+  #     };
+  #     sansSerif = {
+  #       package = pkgs.dejavu_fonts;
+  #       name = "DejaVu Sans";
+  #     };
+  #     monospace = {
+  #       package = pkgs.fira-code-nerdfont;
+  #       name = "FiraCode Nerd Font Mono";
+  #     };
+  #     emoji = {
+  #       package = pkgs.noto-fonts-emoji;
+  #       name = "Noto Color Emoji";
+  #     };
+  #   };
+  #   targets = {
+  #     rofi.enable = false; # Needs fixing quite ugly over terminal
+  #     waybar.enable = false;
+  #   };
+  # };
 }

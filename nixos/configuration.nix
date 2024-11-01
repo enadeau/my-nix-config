@@ -3,11 +3,15 @@
 # and in the NixOS manual (accessible by running ‘nixos-help’).
 {
   pkgs,
+  home-manager,
   ...
-}: {
+}: let
+  home-managerModule = import ../homemanager/home.nix;
+in {
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
+    home-manager.nixosModules.default
   ];
 
   # Bootloader.
@@ -89,6 +93,8 @@
       #  thunderbird
     ];
   };
+  home-manager.users.emilen = home-managerModule;
+  programs.dconf.enable = true;
 
   # Install firefox.
   programs.firefox.enable = true;

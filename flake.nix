@@ -32,7 +32,12 @@
   in {
     nixosConfigurations.y4080 = nixpkgs.lib.nixosSystem {
       system = system;
-      modules = [./nixos/configuration.nix];
+      specialArgs = {
+        home-manager = home-manager;
+      };
+      modules = [
+        ./nixos/configuration.nix
+      ];
     };
 
     homeConfigurations."emilen" = home-manager.lib.homeManagerConfiguration {
