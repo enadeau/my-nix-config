@@ -47,7 +47,7 @@
     home.shellAliases.g = "git";
     programs.bash.bashrcExtra = ''
       # Autocompletion for g alias
-      source $HOME/.nix-profile/share/git/contrib/completion/git-completion.bash
+      _comp_load -D -- git
       __git_complete g __git_main
     '';
   };
