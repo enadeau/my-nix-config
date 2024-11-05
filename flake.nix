@@ -36,6 +36,7 @@
         home-manager = home-manager;
       };
       modules = [
+        stylix.nixosModules.stylix
         ./nixos/configuration.nix
       ];
     };

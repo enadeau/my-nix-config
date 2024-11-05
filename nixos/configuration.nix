@@ -12,7 +12,9 @@ in {
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
     home-manager.nixosModules.default
+    ../modules/mystylix.nix
   ];
+  mystylix.enable = true;
 
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
