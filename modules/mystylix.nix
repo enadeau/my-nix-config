@@ -37,6 +37,11 @@
           name = "Noto Color Emoji";
         };
       };
+      cursor = {
+        name = "Adwaita";
+        package = pkgs.adwaita-icon-theme;
+        size = 20;
+      };
     };
   };
 }
