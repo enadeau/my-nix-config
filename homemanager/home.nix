@@ -2,13 +2,14 @@
   lib,
   config,
   pkgs,
+  username,
   ...
 }: let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
   dropboxModule = import ./dropbox.nix {inherit pkgs lib config completionDir;};
 in {
-  home.username = "emilen";
-  home.homeDirectory = "/home/emilen";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
   home.stateVersion = "23.11"; # Please read the comment before changing.
   programs.home-manager.enable = true;
 
