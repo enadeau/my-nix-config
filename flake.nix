@@ -46,9 +46,7 @@
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        extraSpecialArgs = {
-          inherit username;
-        };
+        # extraSpecialArgs = {};
       };
   in {
     nixosConfigurations.y4080 = nixpkgs.lib.nixosSystem {
