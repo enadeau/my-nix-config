@@ -39,6 +39,9 @@
           stylix.homeManagerModules.stylix
           nixvim.homeManagerModules.nixvim
           ./homemanager/home.nix
+          {
+            username = username;
+          }
         ];
 
         # Optionally use extraSpecialArgs
