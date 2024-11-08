@@ -10,6 +10,7 @@ in {
   options = {
     username = lib.mkOption {
       type = lib.types.str;
+      default = "emilen";
       description = "Username for the home user";
     };
   };
