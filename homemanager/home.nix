@@ -3,14 +3,14 @@
   config,
   pkgs,
   username,
-  nixvim,
+  inputs,
   ...
 }: let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
   dropboxModule = import ./dropbox.nix {inherit pkgs lib config completionDir;};
 in {
   imports = [
-    nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeManagerModules.nixvim
     ./git.nix
     ../modules/mystylix.nix
     # ./waybar.nix

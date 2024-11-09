@@ -23,8 +23,6 @@
   outputs = {
     nixpkgs,
     home-manager,
-    stylix,
-    nixvim,
     ...
   } @ inputs: let
     system = "x86_64-linux";
@@ -36,15 +34,14 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
-          stylix.homeManagerModules.stylix
+          inputs.stylix.homeManagerModules.stylix
           ./homemanager/home.nix
         ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
         extraSpecialArgs = {
-          nixvim = nixvim;
-          username = username;
+          inherit inputs username;
         };
       };
   in {
@@ -54,7 +51,7 @@
         home-manager = home-manager;
       };
       modules = [
-        stylix.nixosModules.stylix
+        inputs.stylix.nixosModules.stylix
         ./nixos/configuration.nix
         home-manager.nixosModules.home-manager
         {
@@ -62,8 +59,8 @@
           home-manager.useUserPackages = true;
           home-manager.users.emilen = import ./homemanager/home.nix;
           home-manager.extraSpecialArgs = {
+            inherit inputs;
             username = "emilen";
-            nixvim = nixvim;
           };
         }
       ];
@@ -72,7 +69,7 @@
     homeConfigurations."emilen" = mkHome "emilen";
     homeConfigurations."enadeau" = mkHome "enadeau";
 
-    packages.${system}.nvim = nixvim.legacyPackages.${system}.makeNixvimWithModule {
+    packages.${system}.nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
       inherit pkgs;
       module = import ./nixvim;
     };
