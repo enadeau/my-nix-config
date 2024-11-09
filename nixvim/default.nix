@@ -182,6 +182,7 @@
         ruff.enable = true;
         lua_ls.enable = true;
         terraformls.enable = true;
+        ts_ls.enable = true;
       };
     };
     lspkind = {
