@@ -46,10 +46,5 @@
     };
 
     home.shellAliases.g = "git";
-    programs.bash.bashrcExtra = ''
-      # Autocompletion for g alias
-      source ${pkgs.complete-alias}/bin/complete_alias
-      complete -F _complete_alias g
-    '';
   };
 }

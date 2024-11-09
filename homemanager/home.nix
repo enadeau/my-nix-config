@@ -13,6 +13,7 @@ in {
     inputs.nixvim.homeManagerModules.nixvim
     ./git.nix
     ../modules/mystylix.nix
+    ../modules/bash_alias_completion.nix
     # ./waybar.nix
     ./terminal.nix
     # ./hyprland.nix
