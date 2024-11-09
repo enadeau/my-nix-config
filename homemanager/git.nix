@@ -32,7 +32,7 @@
       "*.swp"
       ".python-version"
     ];
-    programs.git.diff-so-fancy.changeHunkIndicators = true;
+    programs.git.difftastic.enable = true;
     programs.git.extraConfig = {
       push = {
         push = "simple";
