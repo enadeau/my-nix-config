@@ -70,6 +70,13 @@ in {
       BASH_COMPLETION_USER_DIR = completionDir;
     };
 
+    home.sessionPath = [
+      "$HOME/.cabal/bin"
+      "$HOME/bin"
+      "$HOME/cargo/bin"
+      "$HOME/.local/bin"
+    ];
+
     home.shellAliases = {
       grep = "grep --color=auto";
       ls = "ls --color=auto";
