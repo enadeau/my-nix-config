@@ -37,16 +37,15 @@
         # the path to your home.nix.
         modules = [
           stylix.homeManagerModules.stylix
-          nixvim.homeManagerModules.nixvim
           ./homemanager/home.nix
-          {
-            username = username;
-          }
         ];
 
         # Optionally use extraSpecialArgs
         # to pass through arguments to home.nix
-        # extraSpecialArgs = {};
+        extraSpecialArgs = {
+          nixvim = nixvim;
+          username = username;
+        };
       };
   in {
     nixosConfigurations.y4080 = nixpkgs.lib.nixosSystem {
@@ -62,6 +61,10 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
           home-manager.users.emilen = import ./homemanager/home.nix;
+          home-manager.extraSpecialArgs = {
+            username = "emilen";
+            nixvim = nixvim;
+          };
         }
       ];
     };

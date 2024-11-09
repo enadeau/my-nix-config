@@ -2,20 +2,15 @@
   lib,
   config,
   pkgs,
+  username,
+  nixvim,
   ...
 }: let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
   dropboxModule = import ./dropbox.nix {inherit pkgs lib config completionDir;};
 in {
-  options = {
-    username = lib.mkOption {
-      type = lib.types.str;
-      default = "emilen";
-      description = "Username for the home user";
-    };
-  };
-
   imports = [
+    nixvim.homeManagerModules.nixvim
     ./git.nix
     ../modules/mystylix.nix
     # ./waybar.nix
@@ -25,8 +20,8 @@ in {
   ];
 
   config = {
-    home.username = config.username;
-    home.homeDirectory = "/home/${config.username}";
+    home.username = username;
+    home.homeDirectory = "/home/${username}";
     home.stateVersion = "23.11"; # Please read the comment before changing.
     programs.home-manager.enable = true;
 
@@ -104,7 +99,7 @@ in {
 
     programs.btop.enable = true;
     programs.starship.enable = true;
-    # programs.nixvim = import ../nixvim // {enable = true;};
+    programs.nixvim = import ../nixvim // {enable = true;};
 
     mystylix.enable = true;
     stylix.targets = {
