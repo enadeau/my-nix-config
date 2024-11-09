@@ -80,6 +80,7 @@ in {
     home.shellAliases = {
       grep = "grep --color=auto";
       ls = "ls --color=auto";
+      ll = "ls --all -l --classify";
     };
 
     programs.bash.enable = true;
