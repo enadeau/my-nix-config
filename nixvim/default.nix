@@ -125,7 +125,7 @@
   plugins = {
     lualine = {
       enable = true;
-      iconsEnabled = true;
+      settings.options.icons_enabled = true;
     };
     comment.enable = true;
     gitsigns = {
@@ -180,7 +180,7 @@
           };
         };
         ruff.enable = true;
-        lua-ls.enable = true;
+        lua_ls.enable = true;
         terraformls.enable = true;
       };
     };
@@ -209,6 +209,7 @@
         "<Leader>pb" = "buffers";
       };
     };
+    web-devicons.enable = true;
     treesitter = {
       enable = true;
       folding = true;
