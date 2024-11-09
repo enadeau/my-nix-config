@@ -30,7 +30,6 @@
     programs.git.ignores = [
       "*~"
       "*.swp"
-      ".python-version"
     ];
     programs.git.difftastic.enable = true;
     programs.git.extraConfig = {
