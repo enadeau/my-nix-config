@@ -1,6 +1,7 @@
 {
   lib,
   config,
+  pkgs,
   ...
 }: {
   options = {
@@ -47,8 +48,8 @@
     home.shellAliases.g = "git";
     programs.bash.bashrcExtra = ''
       # Autocompletion for g alias
-      _comp_load -D -- git
-      __git_complete g __git_main
+      source ${pkgs.complete-alias}/bin/complete_alias
+      complete -F _complete_alias g
     '';
   };
 }
