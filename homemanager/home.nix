@@ -72,10 +72,10 @@ in {
     };
 
     home.sessionPath = [
-      "$HOME/.cabal/bin"
       "$HOME/bin"
-      "$HOME/cargo/bin"
       "$HOME/.local/bin"
+      "$HOME/.cabal/bin"
+      "$HOME/.cargo/bin"
     ];
 
     home.shellAliases = {
