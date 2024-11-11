@@ -61,7 +61,6 @@ in {
 
     nixpkgs.config.allowUnfree = true;
     home.packages = [
-      pkgs.slack
       pkgs.tldr
       pkgs.curl
       pkgs.keepassxc
