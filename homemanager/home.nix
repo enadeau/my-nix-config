@@ -8,6 +8,7 @@
 }: let
   completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
   dropboxModule = import ./dropbox.nix {inherit pkgs lib config completionDir;};
+  isNixos = builtins.match "ID=nixos" (builtins.readFile "/etc/os-release") != null;
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
@@ -28,6 +29,7 @@ in {
 
     programs.ripgrep.enable = true;
     programs.firefox.enable = true;
+    programs.firefox.packages = config.lib.nixGl.wrap pkgs.firefox;
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
@@ -109,6 +111,16 @@ in {
     programs.btop.enable = true;
     programs.starship.enable = true;
     programs.nixvim = import ../nixvim // {enable = true;};
+
+    nixGL = {
+      packages =
+        if isNixos
+        then null
+        else {
+          nixGLIntel = inputs.nixgl.packages."x86_64-linux".nixGLIntel;
+        };
+      defaultWrapper = "mesa";
+    };
 
     mystylix.enable = true;
     stylix.targets = {
