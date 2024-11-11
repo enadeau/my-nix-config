@@ -29,7 +29,7 @@ in {
 
     programs.ripgrep.enable = true;
     programs.firefox.enable = true;
-    programs.firefox.packages = config.lib.nixGl.wrap pkgs.firefox;
+    programs.firefox.package = config.lib.nixGL.wrap pkgs.firefox;
     programs.direnv = {
       enable = true;
       nix-direnv.enable = true;
