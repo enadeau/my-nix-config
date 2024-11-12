@@ -27,6 +27,8 @@ in {
     home.stateVersion = "23.11"; # Please read the comment before changing.
     programs.home-manager.enable = true;
 
+    programs.bat.enable = true;
+
     programs.ripgrep.enable = true;
     programs.firefox.enable = true;
     programs.firefox.package = config.lib.nixGL.wrap pkgs.firefox;
