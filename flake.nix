@@ -39,7 +39,7 @@
         # the path to your home.nix.
         modules = [
           inputs.stylix.homeManagerModules.stylix
-          ./homemanager/home.nix
+          ./homeManagerModules
         ];
 
         # Optionally use extraSpecialArgs
@@ -61,7 +61,7 @@
         {
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
-          home-manager.users.emilen = import ./homemanager/home.nix;
+          home-manager.users.emilen = import ./homeManagerModules;
           home-manager.extraSpecialArgs = {
             inherit inputs;
             username = "emilen";

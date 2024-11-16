@@ -1,5 +1,4 @@
 {
-  lib,
   config,
   pkgs,
   username,
@@ -10,11 +9,11 @@
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ../modules/bash_alias_completion.nix
-    ../modules/dropbox.nix
-    ../modules/git.nix
-    ../modules/terminal.nix
-    ../modules/mystylix.nix
+    ./bash_alias_completion.nix
+    ./dropbox.nix
+    ./git.nix
+    ./terminal.nix
+    ./mystylix.nix
     # ./waybar.nix
     # ./hyprland.nix
   ];

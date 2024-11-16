@@ -5,10 +5,10 @@
   ...
 }: {
   options = {
-    kitty.enable = lib.mkEnableOption "enable kitty";
+    terminal.enable = lib.mkEnableOption "enable kitty";
   };
 
-  config = lib.mkIf config.kitty.enable {
+  config = lib.mkIf config.terminal.enable {
     programs.kitty.enable = true;
     programs.kitty.package = config.lib.nixGL.wrap pkgs.kitty;
     programs.kitty.keybindings = {
