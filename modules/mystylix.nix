@@ -12,7 +12,7 @@
     stylix = {
       enable = true;
       image = pkgs.runCommand "wallpaper_1920x1080.jpg" {} ''
-        ${pkgs.imagemagick}/bin/convert ${../homemanager/wallpaper_full_resolution.jpg} \
+        ${pkgs.imagemagick}/bin/convert ${./wallpaper_full_resolution.jpg} \
         -resize 1920x1080! \
         -filter Lanczos \
         -sharpen 0x1 \
