@@ -10,13 +10,13 @@
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ../modules/git.nix
-    ../modules/mystylix.nix
     ../modules/bash_alias_completion.nix
-    # ./waybar.nix
-    ./terminal.nix
-    # ./hyprland.nix
     ../modules/dropbox.nix
+    ../modules/git.nix
+    ../modules/terminal.nix
+    ../modules/mystylix.nix
+    # ./waybar.nix
+    # ./hyprland.nix
   ];
 
   config = {
@@ -104,6 +104,7 @@ in {
 
     dropbox.enable = true;
     git.enable = true;
+    terminal.enable = true;
     # waybar.enable = true;
 
     programs.btop.enable = true;
