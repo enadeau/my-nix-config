@@ -12,7 +12,7 @@
 in {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
-    ./git.nix
+    ../modules/git.nix
     ../modules/mystylix.nix
     ../modules/bash_alias_completion.nix
     # ./waybar.nix
