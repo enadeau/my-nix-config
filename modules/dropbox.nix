@@ -2,7 +2,6 @@
   pkgs,
   lib,
   config,
-  completionDir,
   ...
 }: let
   # Path where the completion script will be saved
@@ -42,6 +41,6 @@ in {
       };
     };
 
-    home.file."${completionDir}/maestral".source = "${maestralCompletion}";
+    programs.bash.initExtra = "source ${maestralCompletion}";
   };
 }

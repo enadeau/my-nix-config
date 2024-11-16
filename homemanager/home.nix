@@ -6,8 +6,6 @@
   inputs,
   ...
 }: let
-  completionDir = "${config.home.homeDirectory}/.local/share/bash-completion/completions";
-  dropboxModule = import ./dropbox.nix {inherit pkgs lib config completionDir;};
   isNixos = builtins.match "ID=nixos" (builtins.readFile "/etc/os-release") != null;
 in {
   imports = [
@@ -18,7 +16,7 @@ in {
     # ./waybar.nix
     ./terminal.nix
     # ./hyprland.nix
-    dropboxModule
+    ../modules/dropbox.nix
   ];
 
   config = {
@@ -71,7 +69,6 @@ in {
     home.sessionVariables = {
       EDITOR = "vim";
       VISUAL = "vim";
-      BASH_COMPLETION_USER_DIR = completionDir;
     };
 
     home.sessionPath = [
