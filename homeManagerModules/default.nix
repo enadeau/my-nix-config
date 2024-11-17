@@ -1,12 +1,9 @@
 {
   config,
   pkgs,
-  username,
   inputs,
   ...
-}: let
-  isNixos = builtins.match "ID=nixos" (builtins.readFile "/etc/os-release") != null;
-in {
+}: {
   imports = [
     inputs.nixvim.homeManagerModules.nixvim
     ./bash_alias_completion.nix
@@ -19,8 +16,6 @@ in {
   ];
 
   config = {
-    home.username = username;
-    home.homeDirectory = "/home/${username}";
     home.stateVersion = "23.11"; # Please read the comment before changing.
     programs.home-manager.enable = true;
 
@@ -109,16 +104,6 @@ in {
     programs.btop.enable = true;
     programs.starship.enable = true;
     programs.nixvim = import ../nixvim // {enable = true;};
-
-    nixGL = {
-      packages =
-        if isNixos
-        then null
-        else {
-          nixGLIntel = inputs.nixgl.packages."x86_64-linux".nixGLIntel;
-        };
-      defaultWrapper = "mesa";
-    };
 
     mystylix.enable = true;
     stylix.targets = {

@@ -31,23 +31,6 @@
   } @ inputs: let
     system = "x86_64-linux";
     pkgs = nixpkgs.legacyPackages.${system};
-    mkHome = username:
-      home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [
-          inputs.stylix.homeManagerModules.stylix
-          ./homeManagerModules
-        ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-        extraSpecialArgs = {
-          inherit inputs username;
-        };
-      };
   in {
     nixosConfigurations.y4080 = nixpkgs.lib.nixosSystem {
       system = system;
@@ -56,7 +39,7 @@
       };
       modules = [
         inputs.stylix.nixosModules.stylix
-        ./nixos/configuration.nix
+        ./hosts/y4080/configuration.nix
         home-manager.nixosModules.home-manager
         {
           home-manager.useGlobalPkgs = true;
@@ -64,14 +47,29 @@
           home-manager.users.emilen = import ./homeManagerModules;
           home-manager.extraSpecialArgs = {
             inherit inputs;
-            username = "emilen";
           };
         }
       ];
     };
 
-    homeConfigurations."emilen" = mkHome "emilen";
-    homeConfigurations."enadeau" = mkHome "enadeau";
+    homeConfigurations = {
+      "enadeau@emile-ruv" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
+
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [
+          inputs.stylix.homeManagerModules.stylix
+          ./hosts/work/home.nix
+        ];
+
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+        extraSpecialArgs = {
+          inherit inputs;
+        };
+      };
+    };
 
     packages.${system}.nvim = inputs.nixvim.legacyPackages.${system}.makeNixvimWithModule {
       inherit pkgs;

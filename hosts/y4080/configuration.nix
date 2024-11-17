@@ -5,7 +5,7 @@
   imports = [
     # Include the results of the hardware scan.
     ./hardware-configuration.nix
-    ../homeManagerModules/mystylix.nix
+    ../../homeManagerModules/mystylix.nix
   ];
   mystylix.enable = true;
   nix.settings.experimental-features = ["nix-command" "flakes"];
