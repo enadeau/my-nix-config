@@ -211,6 +211,7 @@
       };
     };
     web-devicons.enable = true;
+    guess-indent.enable = true;
     treesitter = {
       enable = true;
       folding = true;
