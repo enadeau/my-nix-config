@@ -31,7 +31,8 @@
       "*~"
       "*.swp"
     ];
-    programs.git.difftastic.enable = true;
+    programs.git.difftastic.enable = false;
+    programs.git.delta.enable = true;
     programs.git.extraConfig = {
       push = {
         push = "simple";
