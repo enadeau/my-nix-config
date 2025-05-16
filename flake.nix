@@ -16,7 +16,6 @@
     nixvim = {
       url = "github:nix-community/nixvim";
       inputs.nixpkgs.follows = "nixpkgs";
-      inputs.home-manager.follows = "home-manager";
     };
     nixgl = {
       url = "github:nix-community/nixGL";
@@ -59,7 +58,7 @@
         # Specify your home configuration modules here, for example,
         # the path to your home.nix.
         modules = [
-          inputs.stylix.homeManagerModules.stylix
+          inputs.stylix.homeModules.stylix
           ./hosts/work/home.nix
         ];
 

@@ -109,6 +109,7 @@
     stylix.targets = {
       rofi.enable = false; # Needs fixing quite ugly over terminal
       waybar.enable = false;
+      firefox.profileNames = ["default"];
     };
   };
 }
