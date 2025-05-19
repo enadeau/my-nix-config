@@ -11,6 +11,7 @@
     ./git.nix
     ./terminal.nix
     ./mystylix.nix
+    ./aws.nix
     # ./waybar.nix
     # ./hyprland.nix
   ];
@@ -98,6 +99,7 @@
 
     dropbox.enable = true;
     git.enable = true;
+    aws.enable = true;
     terminal.enable = true;
     # waybar.enable = true;
 

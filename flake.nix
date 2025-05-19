@@ -29,7 +29,13 @@
     ...
   } @ inputs: let
     system = "x86_64-linux";
-    pkgs = nixpkgs.legacyPackages.${system};
+    overlays = [
+      (import ./overlays/aws-export-credentials.nix)
+    ];
+    pkgs = import nixpkgs {
+      inherit system;
+      overlays = overlays;
+    };
   in {
     nixosConfigurations.y4080 = nixpkgs.lib.nixosSystem {
       system = system;
