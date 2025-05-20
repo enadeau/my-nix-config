@@ -11,7 +11,7 @@
     ./git.nix
     ./terminal.nix
     ./mystylix.nix
-    ./aws.nix
+    ./aws/default.nix
     # ./waybar.nix
     # ./hyprland.nix
   ];
