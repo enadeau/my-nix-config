@@ -59,6 +59,7 @@
       pkgs.tldr
       pkgs.curl
       pkgs.keepassxc
+      pkgs.obsidian
     ];
 
     home.sessionVariables = {
