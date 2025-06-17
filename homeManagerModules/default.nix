@@ -109,10 +109,5 @@
     programs.nixvim = import ../nixvim // {enable = true;};
 
     mystylix.enable = true;
-    stylix.targets = {
-      rofi.enable = false; # Needs fixing quite ugly over terminal
-      waybar.enable = false;
-      firefox.enable = false;
-    };
   };
 }
