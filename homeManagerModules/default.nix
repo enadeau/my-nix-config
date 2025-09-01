@@ -60,6 +60,7 @@
       pkgs.curl
       pkgs.keepassxc
       pkgs.obsidian
+      pkgs.claude-code
     ];
 
     home.sessionVariables = {
