@@ -5,7 +5,7 @@
   ...
 }: {
   imports = [
-    inputs.nixvim.homeManagerModules.nixvim
+    inputs.nixvim.homeModules.nixvim
     ./bash_alias_completion.nix
     ./dropbox.nix
     ./git.nix
