@@ -17,6 +17,7 @@
       }
     '';
 
+    programs.awscli.enable = true;
     programs.granted.enable = true;
     # Make assume export the creds as env variables
     home.shellAliases = {
