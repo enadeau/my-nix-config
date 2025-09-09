@@ -19,7 +19,9 @@
 
     programs.granted.enable = true;
     # Make assume export the creds as env variables
-    programs.bash.bashrcExtra = "alias assume = '. assume'";
+    home.shellAliases = {
+      assume = ". assume";
+    };
     home.packages = [
       (
         pkgs.stdenv.mkDerivation {
