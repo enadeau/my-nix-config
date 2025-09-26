@@ -31,7 +31,7 @@
     };
     programs.rofi = {
       enable = true;
-      package = pkgs.rofi-wayland;
+      package = pkgs.rofi;
     };
     services.dunst = {
       enable = true;
