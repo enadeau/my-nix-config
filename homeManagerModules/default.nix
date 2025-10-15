@@ -62,6 +62,7 @@
       pkgs.obsidian
       pkgs.claude-code
       pkgs.codex
+      pkgs.just
     ];
 
     home.sessionVariables = {
