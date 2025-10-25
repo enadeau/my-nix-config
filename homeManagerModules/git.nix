@@ -1,7 +1,6 @@
 {
   lib,
   config,
-  pkgs,
   ...
 }: {
   options = {
@@ -11,12 +10,17 @@
       default = "nadeau.emile@gmail.com";
       description = "Email address to use for git commits";
     };
+    git.userName = lib.mkOption {
+      type = lib.types.str;
+      default = "Émile Nadeau";
+      description = "Name use for git commit";
+    };
   };
 
   config = lib.mkIf config.git.enable {
     programs.git.enable = true;
     programs.git.userEmail = config.git.userEmail;
-    programs.git.userName = "Émile Nadeau";
+    programs.git.userName = config.git.userName;
     programs.git.aliases = {
       d = "diff";
       st = "status --short --branch";
@@ -46,5 +50,15 @@
     };
 
     home.shellAliases.g = "git";
+
+    programs.jujutsu = {
+      enable = true;
+      settings = {
+        user = {
+          email = config.git.userEmail;
+          name = config.git.userName;
+        };
+      };
+    };
   };
 }
