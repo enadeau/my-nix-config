@@ -155,6 +155,7 @@
     cmp-path.enable = true;
     lsp = {
       enable = true;
+      inlayHints = true;
       keymaps = {
         diagnostic = {
           "<Leader>k" = "goto_prev";
