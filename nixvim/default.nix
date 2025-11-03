@@ -190,6 +190,8 @@
         terraformls.enable = true;
         # TypeScript LSP
         ts_ls.enable = true;
+        # Rust
+        rust_analyzer.enable = true;
       };
     };
     lspkind = {
