@@ -174,15 +174,21 @@
       };
       servers = {
         nixd.enable = true;
+        # Python lsp
         pylsp = {
-          enable = true;
+          enable = false;
           settings.plugins = {
             jedi.enable = true;
           };
         };
+        ty.enable = false;
+        pyrefly.enable = true;
         ruff.enable = true;
+        # Lua LSP
         lua_ls.enable = true;
+        # Terraform LSP
         terraformls.enable = true;
+        # TypeScript LSP
         ts_ls.enable = true;
       };
     };
