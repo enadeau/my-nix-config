@@ -8,7 +8,7 @@
     homeDirectory = "/home/enadeau";
   };
 
-  nixGL = {
+  targets.genericLinux.nixGL = {
     packages.nixGLIntel = inputs.nixgl.packages."x86_64-linux".nixGLIntel;
     defaultWrapper = "mesa";
   };

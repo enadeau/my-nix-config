@@ -19,9 +19,9 @@
 
   config = lib.mkIf config.git.enable {
     programs.git.enable = true;
-    programs.git.userEmail = config.git.userEmail;
-    programs.git.userName = config.git.userName;
-    programs.git.aliases = {
+    programs.git.settings.user.email = config.git.userEmail;
+    programs.git.settings.user.name = config.git.userName;
+    programs.git.settings.alias = {
       d = "diff";
       st = "status --short --branch";
       co = "checkout";
@@ -35,9 +35,15 @@
       "*~"
       "*.swp"
     ];
-    programs.git.difftastic.enable = false;
-    programs.git.delta.enable = true;
-    programs.git.extraConfig = {
+    programs.difftastic = {
+      enable = false;
+      git.enable = true;
+    };
+    programs.delta = {
+      enable = true;
+      enableGitIntegration = true;
+    };
+    programs.git.settings = {
       push = {
         push = "simple";
       };
