@@ -24,6 +24,7 @@
       assume = ". assume";
     };
     home.packages = [
+      pkgs.tenv
       (
         pkgs.stdenv.mkDerivation {
           name = "tunnel";
