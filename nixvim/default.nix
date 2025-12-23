@@ -183,7 +183,10 @@
         };
         ty.enable = false;
         pyrefly.enable = true;
-        ruff.enable = true;
+        ruff = {
+          enable = true;
+          packageFallback = true;
+        };
         # Lua LSP
         lua_ls.enable = true;
         # Terraform LSP
