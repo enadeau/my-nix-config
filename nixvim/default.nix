@@ -8,7 +8,7 @@
     "lua/focus_line.lua".source = ./focus_line.lua;
   };
   extraConfigLua = ''
-    vim.opt.runtimepath:prepend("/home/emilen/.config/nvim")
+    vim.opt.runtimepath:prepend("/home/enadeau/.config/nvim")
     require("focus_line")
   '';
 
@@ -191,7 +191,11 @@
         # TypeScript LSP
         ts_ls.enable = true;
         # Rust
-        rust_analyzer.enable = true;
+        rust_analyzer = {
+          enable = true;
+          installCargo = true;
+          installRustc = true;
+        };
       };
     };
     lspkind = {
@@ -225,7 +229,7 @@
     guess-indent.enable = true;
     treesitter = {
       enable = true;
-      folding = true;
+      folding.enable = true;
       settings.highlight.enable = true;
     };
   };
