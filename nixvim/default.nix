@@ -226,6 +226,7 @@
         "<Leader>pa" = "find_files";
         "<Leader>pg" = "live_grep";
         "<Leader>pb" = "buffers";
+        "gr" = "lsp_references";
       };
     };
     web-devicons.enable = true;
