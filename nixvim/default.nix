@@ -236,5 +236,6 @@
       folding.enable = true;
       settings.highlight.enable = true;
     };
+    nvim-tree.enable = true;
   };
 }
