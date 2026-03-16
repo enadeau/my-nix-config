@@ -8,6 +8,10 @@
         type = "http";
         url = "https://mcp.sentry.dev/mcp";
       };
+      vercel = {
+        type = "http";
+        url = "https://mcp.vercel.com";
+      };
     };
   };
 }
