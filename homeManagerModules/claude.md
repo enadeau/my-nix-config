@@ -12,3 +12,4 @@ When writing python code you should always
 - Include type annotation
 - Use ruff formatter and linter
 - Use uv if configured in the project or creating new project
+- Put the main functions at the top of the file and the helper one at the end.
