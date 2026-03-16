@@ -12,6 +12,7 @@
     ./terminal.nix
     ./mystylix.nix
     ./aws/default.nix
+    ./claude.nix
     # ./waybar.nix
     # ./hyprland.nix
   ];
