@@ -62,6 +62,7 @@
       pkgs.keepassxc
       pkgs.obsidian
       pkgs.just
+      pkgs.fnm
     ];
 
     home.sessionVariables = {
@@ -82,7 +83,12 @@
       ll = "ls --all -l --classify";
     };
 
-    programs.bash.enable = true;
+    programs.bash = {
+      enable = true;
+      initExtra = ''
+        eval "$(fnm env --use-on-cd --shell bash)"
+      '';
+    };
 
     programs.readline = {
       enable = true;
