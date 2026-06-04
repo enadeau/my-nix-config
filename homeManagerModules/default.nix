@@ -63,6 +63,7 @@
       pkgs.obsidian
       pkgs.just
       pkgs.fnm
+      pkgs.pnpm
     ];
 
     home.sessionVariables = {
