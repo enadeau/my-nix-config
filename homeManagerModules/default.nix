@@ -64,6 +64,7 @@
       pkgs.just
       pkgs.fnm
       pkgs.pnpm
+      pkgs.redis
     ];
 
     home.sessionVariables = {
